@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>tylers.vudu.disctodigital</string>
+	<key>connections</key>
+	<dict>
+		<key>B2DDD5DC-9D32-43E3-97EA-90AA61B23CEF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F644715F-D0EA-4336-83DB-B906ADFFDC5B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>DA415ABA-1CDC-4B43-BA65-AB42C81C5861</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Search vudu's website for keywords</string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Tyler Silcox</string>
+	<key>description</key>
+	<string>Search for titles that can be converted to digital copies.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>vudu Disc to Digital</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>126</integer>
+				<key>keyword</key>
+				<string>vudu</string>
+				<key>runningsubtext</key>
+				<string>Requesting asistance from magical zombie robotic monkeys...</string>
+				<key>script</key>
+				<string>php -f vududirect.php -- "{query}"</string>
+				<key>subtext</key>
+				<string>Title Search</string>
+				<key>title</key>
+				<string>Disc to Digital</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>B2DDD5DC-9D32-43E3-97EA-90AA61B23CEF</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>args = "{query}".split("|")
+if args[0] == "0"
+  system("open", "http://www.vudu.com/movies/#search/" + args[1])
+else
+  system("open", "http://www.vudu.com/movies/#!content/" + args[0])
+end</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F644715F-D0EA-4336-83DB-B906ADFFDC5B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>126</integer>
+				<key>script</key>
+				<string>args = "{query}".split("|")
+system("open", "http://www.vudu.com/movies/#search/" + args[1])</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>DA415ABA-1CDC-4B43-BA65-AB42C81C5861</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>B2DDD5DC-9D32-43E3-97EA-90AA61B23CEF</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>DA415ABA-1CDC-4B43-BA65-AB42C81C5861</key>
+		<dict>
+			<key>ypos</key>
+			<real>380</real>
+		</dict>
+		<key>F644715F-D0EA-4336-83DB-B906ADFFDC5B</key>
+		<dict>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
